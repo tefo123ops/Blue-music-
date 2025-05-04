@@ -1,4 +1,25 @@
-# Blue-music-
+<div class="music-card" data-platforms='{"spotify":"uri123","youtube":"vid456"}'>
+       <h3>Song Title</h3>
+       <p>Artist Name</p>
+       <div class="platform-links">
+           <a href="#" class="spotify-link" onclick="openInSpotify('uri123')">
+               <img src="spotify-icon.png" alt="Play on Spotify">
+           </a>
+           <a href="#" class="youtube-link" onclick="openInYoutube('vid456')">
+               <img src="youtube-icon.png" alt="Watch on YouTube">
+           </a>
+       </div>
+   </div>
+
+   <script>
+   function openInSpotify(uri) {
+       window.open(`https://open.spotify.com/track/${uri}`, '_blank');
+   }
+   
+   function openInYoutube(videoId) {
+       window.open(`https://youtube.com/watch?v=${videoId}`, '_blank');
+   }
+   </script># Blue-music-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -202,3 +223,94 @@
 
 </body>
 </html>
+<div class="attribution">
+       <p>All music links direct to official platforms. We don't host any content.</p>
+       <p>© Respective copyright holders. Fair use for discovery purposes.</p>
+   </div>
+   <div class="music-card" data-platforms='{"spotify":"uri123","youtube":"vid456"}'>
+       <h3>Song Title</h3>
+       <p>Artist Name</p>
+       <div class="platform-links">
+           <a href="#" class="spotify-link" onclick="openInSpotify('uri123')">
+               <img src="spotify-icon.png" alt="Play on Spotify">
+           </a>
+           <a href="#" class="youtube-link" onclick="openInYoutube('vid456')">
+               <img src="youtube-icon.png" alt="Watch on YouTube">
+           </a>
+       </div>
+   </div>
+
+   <script>
+   function openInSpotify(uri) {
+       window.open(`https://open.spotify.com/track/${uri}`, '_blank');
+   }
+   
+   function openInYoutube(videoId) {
+       window.open(`https://youtube.com/watch?v=${videoId}`, '_blank');
+   }
+   </script>
+   // Fetch new releases from multiple APIs
+   async function getNewReleases() {
+       const [spotifyReleases, appleReleases] = await Promise.all([
+           fetchSpotifyReleases(),
+           fetchAppleMusicReleases()
+       ]);
+       return combineResults(spotifyReleases, appleReleases);
+   }
+   async function searchSpotify(query) {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
+        headers: {
+            'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+        }
+    });
+    const data = await response.json();
+    return data.tracks.items;
+}
+<div class="music-results">
+    <!-- Example result card -->
+    <div class="track-card" data-id="spotify:track:123" data-platforms='{"spotify":"123","youtube":"abc"}'>
+        <img src="album_cover.jpg" class="album-art">
+        <div class="track-info">
+            <h3>Song Name</h3>
+            <p>Artist Name</p>
+            <div class="platform-buttons">
+                <button onclick="playOnSpotify('123')">▶️ Spotify</button>
+                <button onclick="watchOnYouTube('abc')">▶️ YouTube</button>
+            </div>
+        </div>
+    </div>
+</div>
+async function fetchTrendingVideos() {
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=official+music+video&type=video&key=YOUR_API_KEY`);
+    const data = await response.json();
+    return data.items;
+}
+{
+    "name": "My Mixed Playlist",
+    "tracks": [
+        {
+            "title": "Blinding Lights",
+            "artist": "The Weeknd",
+            "links": {
+                "spotify": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+                "youtube": "https://youtu.be/4NRXx6U8ABQ"
+            }
+        }
+    ]
+{
+    "name": "My Mixed Playlist",
+    "tracks": [
+        {
+            "title": "Blinding Lights",
+            "artist": "The Weeknd",
+            "links": {
+                "spotify": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+                "youtube": "https://youtu.be/4NRXx6U8ABQ"
+            }
+        }
+    ]
+}
+<footer>
+      <p>This site does not host or distribute music. All links direct to official platforms.</p>
+      <p>© 2025 YourSite. All rights reserved.</p>
+  </footer>
